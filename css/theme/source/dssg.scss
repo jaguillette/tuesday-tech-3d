@@ -1,0 +1,80 @@
+/**
+ * White theme for reveal.js. This is the opposite of the 'black' theme.
+ *
+ * By Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #fff;
+
+$mainColor: #222;
+$headingColor: #222;
+
+$mainFontSize: 42px;
+$mainFont: "Helvetica Neue",Helvetica,Arial,sans-serif;
+$headingFont: 'Roboto', Helvetica, sans-serif;
+$headingTextShadow: none;
+$headingLetterSpacing: normal;
+$headingTextTransform: uppercase;
+$headingFontWeight: 600;
+$linkColor: #a41034;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.5em;
+$heading2Size: 1.6em;
+$heading3Size: 1.3em;
+$heading4Size: 1.0em;
+
+section.has-dark-background {
+	&, h1, h2, h3, h4, h5, h6 {
+		color: #fff;
+	}
+}
+
+$logo: url(net-with-braces.svg);
+
+.reveal:not(.has-vertical-slides) aside.controls::after {
+	content: $logo;
+	width: 3.75em;
+	display: block;
+	position: absolute;
+	right: 3em;
+	bottom: 1.5em;
+}
+
+.reveal.has-vertical-slides aside.controls::after {
+	content: $logo;
+	width: 4em;
+	display: block;
+	position: absolute;
+	right: 3em;
+	bottom: 3em;
+}
+
+.reveal section img {
+	max-height: 68vh;
+	max-width: 100%;
+}
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+// Overwrites for theme CSS --------------------
+.reveal {
+	font-weight: 300;
+}
+// ---------------------------------------------

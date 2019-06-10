@@ -1,0 +1,18 @@
+- At the beginning of 2018, I was working for the History Department, and Dan Smail was preparing for Deep History.
+  - What is the course? Why take this approach?
+  - How does 3D scanning fit in?
+  - Guide to looking
+- Got scanner, had to figure out how it worked
+  - Scanned office junk, figured out what was easy, what was hard, how much detail was possible
+  - Part standard, part craft
+- Scanning from technical level
+  - Structured light
+  - video of scan from computer
+- Museum scanning
+  - Working within constraints of museum collections
+  - Working with students on their scanning projects
+  - Peabody, then Art Museum
+  - print from the peabody
+- 3D Printing
+  - Just got printer of our own, still testing a lot of things.
+  - Basic overview of 3d printing techniques

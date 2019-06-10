@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h1>3D Scanning Material Culture</h1>
+					<p>Jeremy Guillette<br/>Instructional Technologist<br/>FAS Academic Technology</p>
+				</section>
+				<section>
+					<img src="https://pmem.unix.fas.harvard.edu:8443/peabody/internal/media/dispatcher/328866/resize:format$003dfull" alt="Bronze fibula or pin with glass back and two bull heads on the front">
+					<aside class="notes">
+						In January 2018, I was working for the History Department, and one of our faculty members, Dan Smail, was preparing for a course called Deep History. This course, cross-listed between anthropology and history, attempts to bridge the gap between the recent past usually studied by historians and the distant past usually studied by archaeologists by focusing on material culture. That is to say, they look at people's stuff, because people have always had stuff, and you can learn a lot from looking at it.
+					</aside>
+				</section>
+				<section>
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Peabody_Museum%2C_Harvard_University_-_exterior_2.JPG/1280px-Peabody_Museum%2C_Harvard_University_-_exterior_2.JPG" alt="Peabody Museum building front, a 5 story brick building">
+					<aside class="notes">
+						This focus on material culture led the course to collaborate with the Peabody Museum and other museums on campus. Initially, they had planned for the students to view Peabody Museum objects only in person in section. However, an opportunity arose to work with the Dean of Undergraduate Education to purchase a 3D scanner, so that students in the course would be able to view the objects virtually outside of section as well.
+					</aside>
+				</section>
+				<section>
+					<div class="sketchfab-embed-wrapper">
+						<iframe width="640" height="480" src="https://sketchfab.com/models/cdd4c724d27146ad998a9c98f1b70533/embed" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+					</div>
+					<aside class="notes">
+						That's where I enter the picture. As the department's digital scholarship facilitator, I was the one who took responsibility for the scanner, and for figuring out how best to use it. I started with some scans of things I had around my office.
+					</aside>
+				</section>
+				<section>
+					<div class="sketchfab-embed-wrapper">
+						<iframe width="640" height="480" src="https://sketchfab.com/models/e1edc042feb8454faecb6d62d1538763/embed" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+					</div>
+					<aside class="notes">
+						This was one of the first objects that I scanned, which was pretty easy to scan, since it's mostly plastic and rubber, which show up quite well on the scanner. I want to take a look at this model, to go over some things about the models that we create that aren't always obvious, but still rarely explained. The first thing I want to do is define what I'm talking about when I'm talking about a 3D model. We have this nice thing that we can view from any angle, but it's fundamentally made up of polygons. If I go into the model inspector here, I can show you the polygons that make up this model. You'll notice that there are no gaps between polygons. This is what's called a "watertight" model, and it's necessary for 3d printing the model. Those polygons are colored by the model's texture, which is just a basic image file that has some instructions for how it's supposed to map to the polygons. Here's another tool in the inspector that can help us see that. So when we're trying to create one of these models, we're trying to get an accurate geometry and an accurate texture. Now let's talk about how we get there.
+					</aside>
+				</section>
+				<section>
+					<h2>video of scanning process</h2>
+					<aside class="notes">
+						Here's a video to contextualize what I'm going to be talking about. It's the whole process for a single, pretty simple object, an old wooden alphabet block that I picked up from an antique store.
+						(during video): So to start with, we have the block on a piece of paper on a turntable. It's on paper because it shows up better than the glossy wood surface, which makes scanning easier. You can see the preview of the scan with the gridlines representing the base on which the object sits. The software will automatically remove that base, which is why we want it to show up. I've taken two scans of the object, one after flipping it over, so that I have a view of the entire object. With those scans complete, I can see a preview. they're not lined up to each other yet, and they look messy, but they clean up well, I promise. Aligning is a pretty simple process, I just pick out three points that are the same on each scan, and the software does the rest. With that done, I run an algorithm to line up scan frames, then start fusing the scan into a proper mesh. The mesh comes out nicely, with only one tiny gap. The mesh has no coloring to it, so then we add a texture, and there you have it, a complete model.
+						So there four main parts of creating a 3d model with this setup: scanning the object, cleaning up and aligning the scans, turning the scans into a mesh, and then texturing the mesh.
+					</aside>
+				</section>
+				<section>
+					<div class="sketchfab-embed-wrapper">
+						<iframe width="640" height="480" src="https://sketchfab.com/models/474c6711df7f4e94b10ad93abc45d152/embed" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+					</div>
+					<aside class="notes">
+						I also scanned my Radiotopia challenge coin, which maybe if you also listen to 99% Invisible you will  think is cool. This was a difficult object to scan, because you can't scan it flat, or the software has no way of knowing how to line up the two sides of the coin. The coin needs to be vertical so that it's possible to get the whole thing. The scanner can also lose track of the object when moving around the coin edge, so it needs something else in its field of view to use as a reference. The scanner is basically taking a whole lot of snapshots of the object, so it needs enough information in each snapshot to figure out where it fits in. Having a background with a complex, non-repeating background is really useful for this, because it ensures that each snapshot has enough information to line it up with the next. To keep this coin vertical, I used a small stand, which I later edited out of the scans with the scanning software.
+					</aside>
+				</section>
+				<section>
+
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
